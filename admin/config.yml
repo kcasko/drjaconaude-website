@@ -2,8 +2,7 @@
 # Documentation: https://decapcms.org/docs/
 
 backend:
-  name: github
-  repo: kcasko/drjaconaude-website
+  name: git-gateway
   branch: main
 
 # Media files will be stored here
