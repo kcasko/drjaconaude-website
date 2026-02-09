@@ -2,8 +2,10 @@
 # Documentation: https://decapcms.org/docs/
 
 backend:
-  name: git-gateway
+  name: github
+  repo: kcasko/drjaconaude-website
   branch: main
+  base_url: https://sveltia-cms-auth.keezay.workers.dev
 
 # Media files will be stored here
 media_folder: "images/uploads"
