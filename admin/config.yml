@@ -1,0 +1,73 @@
+# Decap CMS Configuration for Dr. Jaco Naude Website
+# Documentation: https://decapcms.org/docs/
+
+backend:
+  name: github
+  repo: kcasko/drjaconaude-website
+  branch: main
+
+# Media files will be stored here
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Site URL for preview
+site_url: https://drjaconaude.co.za
+
+# Logo for the CMS
+logo_url: /images/logo.png
+
+# Collections (content types)
+collections:
+  # Blog Posts
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "blog/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", hint: "A brief description for the blog listing page" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+
+  # Audiobooks
+  - name: "audiobooks"
+    label: "Audiobooks"
+    folder: "content/audiobooks"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Price (in Rand)", name: "price", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Gumroad Product ID or URL", name: "gumroad_url", widget: "string", hint: "Paste your Gumroad product link here" }
+      - { label: "Duration", name: "duration", widget: "string", required: false }
+      - { label: "Published", name: "published", widget: "boolean", default: true }
+
+  # Site Settings (single file)
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/settings/general.yml"
+        fields:
+          - { label: "Site Title", name: "site_title", widget: "string", default: "Dr. Jaco Naude" }
+          - { label: "Site Description", name: "site_description", widget: "text" }
+          - { label: "Contact Email", name: "email", widget: "string", required: false }
+          - { label: "Phone Number", name: "phone", widget: "string", required: false }
+          - { label: "Location", name: "location", widget: "string", default: "Pretoria, South Africa" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false }
+          - { label: "YouTube URL", name: "youtube_url", widget: "string", required: false }
+          - { label: "Calendly URL", name: "calendly_url", widget: "string", required: false, hint: "Your Calendly scheduling link" }
+
+      - name: "about"
+        label: "About Page Content"
+        file: "content/settings/about.yml"
+        fields:
+          - { label: "Main Heading", name: "heading", widget: "string" }
+          - { label: "Introduction", name: "intro", widget: "markdown" }
+          - { label: "Philosophy Quote", name: "quote", widget: "text" }
