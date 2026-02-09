@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:www.drjaconaude.co.za)",
       "mcp__filesystem__directory_tree",
-      "mcp__github__create_repository"
+      "mcp__github__create_repository",
+      "mcp__filesystem__list_directory"
     ]
   }
 }
